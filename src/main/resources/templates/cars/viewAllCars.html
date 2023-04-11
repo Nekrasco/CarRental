@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Автопарк</title>
+    <style>
+        .book-link {
+            text-decoration: none;
+        }
+
+        .book-link:hover {
+            color: #001445;
+        }
+
+        .not-enough-book {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Автопарк</h1>
+    <div class="row">
+        <div class="col">
+            <a sec:authorize="isAuthenticated() && (hasRole('ADMIN'))"
+               href="cars/add"
+               class="btn btn-secondary"
+               role="button"
+               style="float: right"
+               aria-disabled="true">Добавить автомобиль</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Марка автомобиля</th>
+            <th scope="col">Цвет</th>
+            <th scope="col">Тип кузова</th>
+            <th scope="col">Количество мест</th>
+            <th scope="col">Коробка передач</th>
+            <th scope="col">Объем двигателя</th>
+            <th scope="col">Мощность двигателя (л.с)</th>
+            <th scope="col">Цена за 1 сутки</th>
+            <th scope="col">Регистрационный номер</th>
+            <th scope="col">Дополнительные характеристики</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td>
+                <a class="car-link" th:href="'/cars/' + ${car.getId()}" th:text="${car.getName()}">Наименование авто</a>
+            </td>
+            <td th:text="${car.getColor()}">цвет</td>
+            <td th:text="${car.getBody()}">тип кузова</td>
+            <td th:text="${car.getNumberOfSeats()}">количество мест</td>
+            <td th:text="${car.getTransmission()}">коробка передач</td>
+            <td th:text="${car.getEngineCapacity()}">объем двигателя</td>
+            <td th:text="${car.getPower()}">мощность двигателя</td>
+            <td th:text="${car.getPricePerDay()}">цена за 1 сутки</td>
+            <td th:text="${car.getRegistrationNumber()}">Регистрационный номер</td>
+            <div th:each="additionalCharacteristic : ${car.additionalCharacteristics}">
+                <td>
+                    <a class="additionalCharacteristic-link"
+                       th:href="'/cars/' + ${additionalCharacteristic.getId()}"
+                       th:text="${additionalCharacteristic.getButton()}">Дополнительные характеристики</a>
+                </td>
+            </div>
+            <td>
+                <a sec:authorize="hasRole('ADMIN')" class="btn btn-sm btn-outline-success"
+                   th:href="'/cars/' + ${car.id}">Арендовать автомобиль</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

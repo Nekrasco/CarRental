@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Дополнительные характеристики</title>
+    <style>
+        .book-link {
+            text-decoration: none;
+        }
+
+        .book-link:hover {
+            color: #001445;
+        }
+
+        .not-enough-book {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Здесь должна отображаться дополнительная информация по Id автомобиля. Но по каким то причинам отображается только заголовок.
+    Скорее всего связано с HTML кодом. </h1>
+    <div class="row">
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Кондиционер</th>
+            <th scope="col">Климат контроль</th>
+            <th scope="col">Подогрев передних сидений</th>
+            <th scope="col">Подогрев рулевого колеса</th>
+            <th scope="col">Привод колес</th>
+            <th scope="col">Аудиосистема</th>
+            <th scope="col">Система навигации</th>
+            <th scope="col">Круиз контроль</th>
+            <th scope="col">Количество подушек безопасности</th>
+            <th scope="col">Парктроник</th>
+        </tr>
+        </thead>
+        </td>
+            <td th:text="${additionalCharacteristics.getAirConditioner()}">Кондиционер</td>
+            <td th:text="${additionalCharacteristics.getClimateControl()}">Климат контроль</td>
+            <td th:text="${additionalCharacteristics.getHeatedFrontSeats()}">Подогрев передних сидений</td>
+            <td th:text="${additionalCharacteristics.getHeatedSteeringWheel()}">Подогрев рулевого колеса</td>
+            <td th:text="${additionalCharacteristics.getDriveWheels()}">Привод колес</td>
+            <td th:text="${additionalCharacteristics.getAudioSystem()}">Аудиосистема</td>
+            <td th:text="${additionalCharacteristics.getNavigationSystem()}">Система навигации</td>
+            <td th:text="${additionalCharacteristics.getCruiseControl()}">Круиз контроль</td>
+            <td th:text="${additionalCharacteristics.getAirbag()}">Количество подушек безопасности</td>
+            <td th:text="${additionalCharacteristics.getParktronic()}">Парктроник</td>
+    </table>
+<</div>
+</body>
+</html>

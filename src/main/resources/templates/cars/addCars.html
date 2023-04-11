@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить новый автомобиль</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h3 class="mt-3 mb-3">Добавить новый автомобиль</h3>
+    <form enctype="multipart/form-data" class="needs-validation" novalidate style="max-width: 50vw" method="POST"
+          th:action="@{/cars/add}" th:object="${carForm}">
+        <div class="mt-3 row g-2">
+            <div class="col-md">
+                <div class="form-floating">
+                    <input name="name" type="text" class="form-control" id="name" placeholder="Марка автомобиля"
+                           required>
+                    <label for="name">Марка автомобиля </label>
+                    <div class="invalid-feedback">Обязательное поле для заполнения</div>
+                </div>
+            </div>
+        </div>
+            <div class="mt-3 row g-2">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input name="color" type="text" class="form-control" id="color"
+                               placeholder="Цвет" required>
+                        <label for="color">Цвет</label>
+                        <div class="invalid-feedback">Обязательное поле для заполнения</div>
+                    </div>
+            </div>
+            </div>
+            <div class="mt-3 row g-2">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input name="body" type="text" class="form-control" id="body"
+                               placeholder="Тип кузова" required>
+                        <label for="body">Тип кузова</label>
+                        <div class="invalid-feedback">Обязательное поле для заполнения</div>
+                    </div>
+                </div>
+            </div>
+                <div class="mt-3 row g-2">
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input name="numberOfSeats" type="text" class="form-control" id="numberOfSeats"
+                                   placeholder="Количество мест" required>
+                            <label for="numberOfSeats">Количество мест</label>
+                            <div class="invalid-feedback">Обязательное поле для заполнения</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 row g-2">
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input name="transmission" type="text" class="form-control" id="transmission"
+                                   placeholder="Коробка передач" required>
+                            <label for="transmission">Коробка передач</label>
+                            <div class="invalid-feedback">Обязательное поле для заполнения</div>
+                        </div>
+                </div>
+                </div>
+                <div class="mt-3 row g-2">
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <input name="engineCapacity" type="text" class="form-control" id="engineCapacity"
+                                   placeholder="Объем двигателя" required>
+                            <label for="engineCapacity">Объем двигателя</label>
+                            <div class="invalid-feedback">Обязательное поле для заполнения</div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="mt-3 row g-2">
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input name="power" type="text" class="form-control" id="power"
+                                       placeholder="Мощность двигателя" required>
+                                <label for="power">Мощность двигателя</label>
+                                <div class="invalid-feedback">Обязательное поле для заполнения</div>
+                            </div>
+                    </div>
+                    </div>
+                    <div class="mt-3 row g-2">
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input name="pricePerDay" type="text" class="form-control" id="pricePerDay"
+                                       placeholder="Цена за 1 сутки" required>
+                                <label for="pricePerDay">Цена за 1 сутки</label>
+                                <div class="invalid-feedback">Обязательное поле для заполнения</div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="mt-3 row g-2">
+                            <div class="col-md">
+                                <div class="form-floating">
+                                    <input name="registrationNumber" type="text" class="form-control" id="registrationNumber"
+                                           placeholder="Регистрационный номер" required>
+                                    <label for="registrationNumber">Регистрационный номер </label>
+                                    <div class="invalid-feedback">Обязательное поле для заполнения</div>
+                                </div>
+                            </div>
+
+                    <button type="submit" class="btn btn-primary" onclick="validateForm()">Добавить</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.history.back()">Назад</button>
+                        </div>
+</form>
+</div>
+</body>
+</html>

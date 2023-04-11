@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Информация</title>
+</head>
+<body>
+<form layout:fragment="content">
+    <div>
+        <form class="row g-1">
+            <div class="mb-2 row">
+                <label for="rentDate" class="col-sm-2 col-form-label">Дата и время взятия автомобиля:</label>
+                <div class="col-sm-10">
+                    <p th:text="${order.getRentDate()}" class="form-control-plaintext" id="rentDate">
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <label for="returnDate" class="col-sm-2 col-form-label">Дата и время сдачи автомобиля:</label>
+                <div class="col-sm-10">
+                    <p th:text="${order.getReturnDate()}" class="form-control-plaintext" id="returnDate">
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <label for="lastName" class="col-sm-2 col-form-label">Фамилия:</label>
+                <div class="col-sm-10">
+                    <p th:text="${user.getLastName()}" class="form-control-plaintext" id="lastName">
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <label for="firstName" class="col-sm-2 col-form-label">Имя:</label>
+                <div class="col-sm-10">
+                    <p th:text="${user.getFirstName()}" class="form-control-plaintext" id="firstName">
+                </div>
+            </div>
+            <div class="mb-2 row">
+                <label for="middleName" class="col-sm-2 col-form-label">Отчество:</label>
+                <div class="col-sm-10">
+                    <p th:text="${user.getMiddleName()}" class="form-control-plaintext" id="middleName">
+                </div>
+            </div>
+        </form>
+<!--        <hr class="hr"/>-->
+<!--        <form class="row g-1">-->
+<!--            <h4 class="mt-3 mb-3" th:text="'Информация об авторе(ах)'"></h4>-->
+<!--            <div th:each="author : ${book.getAuthors()}">-->
+<!--                <div class="mb-2 row">-->
+<!--                    <label for="fio" class="col-sm-2 col-form-label">ФИО:</label>-->
+<!--                    <div class="col-sm-10">-->
+<!--                        <a class="text-link text-blue" th:href="'/authors/' + ${author.getId()}" th:text="${author.getAuthorFio()}" id="fio"></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--        <hr class="hr"/>-->
+<!--        <div class="mt-2">-->
+<!--            <a th:if="${book.getAmount() > 0}" sec:authorize="!hasRole('ADMIN')" class="btn btn-primary"-->
+<!--               th:href="'/publish/get-book/' + ${book.id}">Арендовать книгу</a>-->
+            <button type="button" class="btn btn-secondary" onclick="window.history.back()">Назад</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>
